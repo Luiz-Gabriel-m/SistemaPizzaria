@@ -1,56 +1,62 @@
+
 package com.example.SitemaPizzaria;
 
-import jakarta.persistence.*;
-
-import java.time.LocalDateTime;
+import jakarta.persistence.*; // Importa as anotações JPA.
+import java.time.LocalDateTime; // Importa a classe LocalDateTime para manipulação de datas.
 
 @Entity
-@Table(name = "Pedidos")
+@Table(name = "Pedidos") // Define a entidade como uma tabela chamada "Pedidos" no banco de dados.
 public class Pedidos {
 
-    @Column(name = "Id_Pedido")
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int Id_Pedido;
+    @Column(name = "Id_Pedido") // Mapeia a coluna "Id_Pedido" da tabela.
+    @Id // Indica que este campo é a chave primária da tabela.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define que o valor do ID é gerado automaticamente.
+    int IdPedido; // Campo que armazena o ID do pedido.
 
-    @Column(name = "Produtos_Pedidos")
-    int Produtos_Pedidos;
 
-    @Column(name = "Forma_De_Pagamento")
-    String Forma_De_Pagamento;
 
-    @Column(name = "Data_E_Hora_Pedido")
-    LocalDateTime Data_E_Hora_Pedido;
+    @Column(name = "Forma_De_Pagamento") // Mapeia a coluna "Forma_De_Pagamento" da tabela.
+    String FormaDePagamento; // Campo que armazena a forma de pagamento do pedido.
 
-    public int getId_Pedido() {
-        return Id_Pedido;
+    @Column(name = "Data_E_Hora_Pedido") // Mapeia a coluna "Data_E_Hora_Pedido" da tabela.
+    LocalDateTime DataEHoraPedido; // Campo que armazena a data e hora do pedido.
+
+    @ManyToOne // Define um relacionamento muitos para um com a entidade Cliente.
+    @JoinColumn(name = "Cliente_id") // Mapeia a coluna "Cliente_id" que referencia a tabela Cliente.
+    private Cliente cliente; // Campo que armazena o cliente associado ao pedido.
+
+    public int getIdPedido() { // Método getter para o ID do pedido.
+        return IdPedido;
     }
 
-    public void setId_Pedido(int id_Pedido) {
-        Id_Pedido = id_Pedido;
+    public void setIdPedido(int idPedido) { // Método setter para o ID do pedido.
+        IdPedido = idPedido;
     }
 
-    public int getProdutos_Pedidos() {
-        return Produtos_Pedidos;
+    public String getFormaDePagamento() { // Método getter para a forma de pagamento.
+        return FormaDePagamento;
     }
 
-    public void setProdutos_Pedidos(int produtos_Pedidos) {
-        Produtos_Pedidos = produtos_Pedidos;
+    public void setFormaDePagamento(String formaDePagamento) { // Método setter para a forma de pagamento.
+        FormaDePagamento = formaDePagamento;
     }
 
-    public String getForma_De_Pagamento() {
-        return Forma_De_Pagamento;
+    public LocalDateTime getDataEHoraPedido() { // Método getter para a data e hora do pedido.
+        return DataEHoraPedido;
     }
 
-    public void setForma_De_Pagamento(String forma_De_Pagamento) {
-        Forma_De_Pagamento = forma_De_Pagamento;
+    public void setDataEHoraPedido(LocalDateTime dataEHoraPedido) { // Método setter para a data e hora do pedido.
+        DataEHoraPedido = dataEHoraPedido;
+
     }
 
-    public LocalDateTime getData_E_Hora_Pedido() {
-        return Data_E_Hora_Pedido;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setData_E_Hora_Pedido(LocalDateTime data_E_Hora_Pedido) {
-        Data_E_Hora_Pedido = data_E_Hora_Pedido;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 }
+
+

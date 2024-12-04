@@ -3,52 +3,53 @@ package com.example.SitemaPizzaria;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Clientes")
+@Table(name = "Clientes") // Define a entidade como uma tabela chamada "Clientes" no banco de dados.
 public class Cliente {
 
-    @Column(name = "Id_Cliente")
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int Id_Cliente;
+    @Column(name = "Id_Cliente") // Mapeia a coluna "Id_Cliente" da tabela.
+    @Id // Indica que este campo é a chave primária da tabela.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define que o valor do ID é gerado automaticamente.
+    int IdCliente; // Campo que armazena o ID do cliente.
 
-    @Column(name = "Nome_Cliente")
-    String Nome_Cliente;
+    @Column(name = "Nome_Cliente") // Mapeia a coluna "Nome_Cliente" da tabela.
+    String NomeCliente; // Campo que armazena o nome do cliente.
 
-    @Column(name = "Telefone_Cliente")
-    String Telefone_Cliente;
+    @Column(name = "Telefone_Cliente") // Mapeia a coluna "Telefone_Cliente" da tabela.
+    String TelefoneCliente; // Campo que armazena o telefone do cliente.
 
-    @Column(name = "Endereco_Cliente")
-    String Endereco_Cliente;
+    @Column(name = "Endereco_Cliente") // Mapeia a coluna "Endereco_Cliente" da tabela.
+    String EnderecoCliente; // Campo que armazena o endereço do cliente.
 
-    public int getId_Cliente() {
-        return Id_Cliente;
+    public Integer getIdCliente() { // Método getter para o ID do cliente.
+        return IdCliente;
     }
 
-    public void setId_Cliente(int id_Cliente) {
-        Id_Cliente = id_Cliente;
+    public void setIdCliente(int idCliente) { // Método setter para o ID do cliente.
+        IdCliente = idCliente;
     }
 
-    public String getNome_Cliente() {
-        return Nome_Cliente;
+    public String getNomeCliente() { // Método getter para o nome do cliente.
+        return NomeCliente;
     }
 
-    public void setNome_Cliente(String nome_Cliente) {
-        Nome_Cliente = nome_Cliente;
+    public void setNomeCliente(String nomeCliente) { // Método setter para o nome do cliente.
+        NomeCliente = nomeCliente;
     }
 
-    public String getTelefone_Cliente() {
-        return Telefone_Cliente;
+    public String getTelefoneCliente() { // Método getter para o telefone do cliente.
+        return TelefoneCliente;
     }
 
-    public void setTelefone_Cliente(String telefone_Cliente) {
-        Telefone_Cliente = telefone_Cliente;
+    public void setTelefoneCliente(String telefoneCliente) { // Método setter para o telefone do cliente.
+        TelefoneCliente = telefoneCliente;
     }
 
-    public String getEndereco_Cliente() {
-        return Endereco_Cliente;
+    public String getEnderecoCliente() { // Método getter para o endereço do cliente.
+        return EnderecoCliente;
     }
 
-    public void setEndereco_Cliente(String endereco_Cliente) {
-        Endereco_Cliente = endereco_Cliente;
+    public void setEnderecoCliente(String enderecoCliente) { // Método setter para o endereço do cliente.
+        EnderecoCliente = enderecoCliente;
     }
 }
+

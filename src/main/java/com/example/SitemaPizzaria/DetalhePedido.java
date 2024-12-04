@@ -12,38 +12,35 @@ public class DetalhePedido {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int Id_Detalhe_Pedido;
 
-    @Column(name = "Pedido")
-    int Pedido;
+    @ManyToOne
+    @JoinColumn(name = "Pedido_id")
+    private Pedidos pedido;
 
-
-    @Column(name = "Cliente_Pedido")
-    int Cliente_Pedido;
-
-
+    @ManyToOne
+    @JoinColumn(name = "Produto_id")
+    private Produto produto;
 
     public int getId_Detalhe_Pedido() {
         return Id_Detalhe_Pedido;
     }
 
-
     public void setId_Detalhe_Pedido(int id_Detalhe_Pedido) {
         Id_Detalhe_Pedido = id_Detalhe_Pedido;
     }
 
-
-    public int getPedido() {
-        return Pedido;
+    public Pedidos getPedido() {
+        return pedido;
     }
 
-    public void setPedido(int pedido) {
-        Pedido = pedido;
+    public void setPedido(Pedidos pedido) {
+        this.pedido = pedido;
     }
 
-    public int getCliente_Pedido() {
-        return Cliente_Pedido;
+    public Produto getProduto() {
+        return produto;
     }
 
-    public void setCliente_Pedido(int cliente_Pedido) {
-        Cliente_Pedido = cliente_Pedido;
+    public void setProduto(Produto produto) {
+        this.produto = produto;
     }
 }

@@ -1,54 +1,54 @@
 package com.example.SitemaPizzaria;
 
-import jakarta.persistence.*;
+import jakarta.persistence.*; // Importa as anotações JPA.
 
 @Entity
-@Table(name = "Produtos")
+@Table(name = "Produtos") // Define a entidade como uma tabela chamada "Produtos" no banco de dados.
 public class Produto {
 
-    @Column(name = "Id_Produtos")
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int Id_Produtos;
+    @Column(name = "Id_Produtos") // Mapeia a coluna "Id_Produtos" da tabela.
+    @Id // Indica que este campo é a chave primária da tabela.
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define que o valor do ID é gerado automaticamente.
+    int IdProdutos; // Campo que armazena o ID do produto.
 
-    @Column(name = "Nome_Produto")
-    String Nome_Produto;
+    @Column(name = "Nome_Produto") // Mapeia a coluna "Nome_Produto" da tabela.
+    String NomeProduto; // Campo que armazena o nome do produto.
 
-    @Column(name = "Preco_Produto")
-    double Preco_Produto;
+    @Column(name = "Preco_Produto") // Mapeia a coluna "Preco_Produto" da tabela.
+    double PrecoProduto; // Campo que armazena o preço do produto.
 
-    @Column(name = "Categoria")
-    String Categoria;
+    @Column(name = "Categoria") // Mapeia a coluna "Categoria" da tabela.
+    String Categoria; // Campo que armazena a categoria do produto.
 
-    public int getId_Produtos() {
-        return Id_Produtos;
+    public Integer getIdProdutos() { // Método getter para o ID do produto.
+        return IdProdutos;
     }
 
-    public void setId_Produtos(int id_Produtos) {
-        Id_Produtos = id_Produtos;
+    public void setIdProdutos(int idProdutos) { // Método setter para o ID do produto.
+        IdProdutos = idProdutos;
     }
 
-    public String getNome_Produto() {
-        return Nome_Produto;
+    public String getNomeProduto() { // Método getter para o nome do produto.
+        return NomeProduto;
     }
 
-    public void setNome_Produto(String nome_Produto) {
-        Nome_Produto = nome_Produto;
+    public void setNomeProduto(String nomeProduto) { // Método setter para o nome do produto.
+        NomeProduto = nomeProduto;
     }
 
-    public double getPreco_Produto() {
-        return Preco_Produto;
+    public double getPrecoProduto() { // Método getter para o preço do produto.
+        return PrecoProduto;
     }
 
-    public void setPreco_Produto(double preco_Produto) {
-        Preco_Produto = preco_Produto;
+    public void setPrecoProduto(double precoProduto) { // Método setter para o preço do produto.
+        PrecoProduto = precoProduto;
     }
 
-    public String getCategoria() {
+    public String getCategoria() { // Método getter para a categoria do produto.
         return Categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(String categoria) { // Método setter para a categoria do produto.
         Categoria = categoria;
     }
 }
