@@ -13,6 +13,7 @@ public class ProdutoControler {
 
     @Autowired // Injeção de dependência do repositório de produtos.
     ProdutoRepository produtoRepository; // Repositório para operações CRUD na entidade Produto.
+    @CrossOrigin(origins = "*")
 
     // Busca todos os produtos cadastrados
     @GetMapping("/Listarprodutos") // Define um endpoint GET para listar todos os produtos.
@@ -21,6 +22,7 @@ public class ProdutoControler {
     }
 
     // Cadastra um novo produto
+    @CrossOrigin(origins = "*")
     @PostMapping("/cadastrarProduto") // Define um endpoint POST para cadastrar um novo produto.
     public ResponseEntity<Produto> cadastrarProduto(@RequestBody Produto produto) { // Recebe um objeto Produto no corpo da requisição.
         Produto produtoSalvo = produtoRepository.save(produto); // Salva o produto recebido no banco de dados.
@@ -28,6 +30,7 @@ public class ProdutoControler {
     }
 
     // Atualiza um produto existente
+    @CrossOrigin(origins = "*")
     @PutMapping("/atualizarProduto/{id}") // Define um endpoint PUT para atualizar um produto existente.
     public ResponseEntity<Produto> atualizarProduto(@PathVariable Integer id, @RequestBody Produto produto) { // Recebe o ID e o objeto atualizado.
         // Busca o produto pelo ID
@@ -41,6 +44,7 @@ public class ProdutoControler {
     }
 
     // Deleta um produto existente
+    @CrossOrigin(origins = "*")
     @DeleteMapping("/deletarProduto/{id}") // Define um endpoint DELETE para excluir um produto.
     public ResponseEntity<Void> deletarProduto(@PathVariable Integer id) { // Recebe o ID do produto a ser excluído.
         // Busca o produto pelo ID
